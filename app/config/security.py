@@ -39,7 +39,7 @@ def verify_jwt_token(token: str) -> dict:
 
         if alg == "ES256":
             # Autenticación asimétrica de Supabase (Nueva por defecto)
-            jwks_url = f"{settings.SUPABASE_URL.rstrip('/')}/auth/v1/jwks"
+            jwks_url = f"{settings.SUPABASE_URL.rstrip('/')}/auth/v1/.well-known/jwks.json"
             jwks = _get_jwks(jwks_url)
             
             kid = header.get("kid")
